@@ -17,3 +17,7 @@ The goal is to collect Windows security events, generate authorised test activit
 The diagram below shows the planned architecture of the Active Directory security monitoring lab. All virtual machines are connected through the private `192.168.10.0/24` network.
 
 ![Active Directory lab architecture](active-directory-lab-diagram.png)
+
+## Project Documentation
+
+- [Part 1: Lab Design and Architecture](docs/01-lab-design.md)
