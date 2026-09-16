@@ -10,7 +10,7 @@ The goal is to collect Windows security events, generate authorised test activit
 
 ## Project Status
 
-🚧 In Progress
+✅ Completed
 
 ## Lab Architecture
 
@@ -21,3 +21,12 @@ The diagram below shows the planned architecture of the Active Directory securit
 ## Project Documentation
 
 - [Part 1: Lab Design and Architecture](docs/01-lab-design.md)
+- 
+### Lab Systems
+
+| System | Hostname | IP Address | Purpose |
+|---|---|---:|---|
+| Ubuntu Server | Splunk Server | 192.168.10.10 | Receives, indexes and displays security events |
+| Windows Server 2022 | ADDC01 | 192.168.10.7 | Domain controller for `mydfir.local` |
+| Windows 10 | TARGET-PC | 192.168.10.100 | Domain-joined endpoint monitored using Sysmon and Splunk Universal Forwarder |
+| Kali Linux | kali | 192.168.10.250 | Authorised security-testing machine |
