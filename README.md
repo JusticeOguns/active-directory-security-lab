@@ -75,3 +75,21 @@ Jenny Smith's account is located in the IT organisational unit.
 I joined TARGET-PC to `mydfir.local`. The screenshot confirms its full computer name and domain membership.
 
 ![TARGET-PC joined to mydfir.local](02-target-pc-domain-joined.png)
+
+## Endpoint Monitoring
+
+I installed Sysmon and Splunk Universal Forwarder on TARGET-PC to support centralised monitoring.
+
+- Sysmon records detailed endpoint activity in Windows Event Logs.
+- Splunk Universal Forwarder collects the configured logs and forwards them to the Splunk server at `192.168.10.10`.
+
+I checked the hostname and service statuses using PowerShell:
+
+    hostname
+    Get-Service -Name SplunkForwarder,Sysmon*
+
+Both SplunkForwarder and Sysmon64 were running on TARGET-PC.
+
+![Monitoring services running on TARGET-PC](03-monitoring-services.png)
+
+This check confirms that the services are running. Log delivery is verified separately through searches in Splunk.
