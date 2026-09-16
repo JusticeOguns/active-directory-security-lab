@@ -2,6 +2,34 @@
 
 ## Overview
 
+## Design Overview
+
+I designed an isolated Active Directory security lab using VMware. All virtual machines were connected to the private `192.168.10.0/24` network so they could communicate within a controlled environment.
+
+The lab consisted of:
+
+- `ADDC01` (`192.168.10.7`) – Windows Server 2022 domain controller for `mydfir.local`.
+- `TARGET-PC` (`192.168.10.100`) – Windows 10 endpoint joined to the domain.
+- Splunk Server (`192.168.10.10`) – Collected and indexed security events.
+- Kali Linux (`192.168.10.250`) – Used to generate authorised security-testing activity.
+
+## Event Flow
+
+Sysmon and Windows Event Logs generated telemetry on the Windows endpoint. The Splunk Universal Forwarder sent these logs to the Splunk server, where I searched and investigated the activity.
+
+Kali Linux was used to simulate activity against the Windows target. This allowed me to observe how authentication attempts and other endpoint activity appeared in Splunk.
+
+## Purpose of the Design
+
+The environment allowed me to practise:
+
+- Active Directory administration
+- Windows domain authentication
+- Endpoint log collection
+- Security event monitoring with Splunk
+- Controlled attack simulation
+- Investigating security telemetry
+
 This repository documents my completion of the MyDFIR Active Directory Project 1.0.
 
 The project involves building an Active Directory home lab using Windows Server, a Windows target machine, Splunk, Sysmon, Kali Linux and Atomic Red Team.
@@ -21,7 +49,7 @@ The diagram below shows the planned architecture of the Active Directory securit
 ## Project Documentation
 
 - [Part 1: Lab Design and Architecture](docs/01-lab-design.md)
-- 
+  
 ### Lab Systems
 
 | System | Hostname | IP Address | Purpose |
