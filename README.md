@@ -108,3 +108,11 @@ The results confirmed collection of Application, System and Sysmon events, with 
 ### Limitation
 
 Security logs did not appear in this search, so I could not verify failed-logon collection. Further troubleshooting is needed before claiming detection of the password-testing activity.
+
+## Atomic Red Team Setup
+
+On TARGET-PC, I checked that the Invoke-AtomicRedTeam module file and the T1059.001 PowerShell test definition were present. Both checks returned True.
+
+![Atomic Red Team files on TARGET-PC](05-atomic-red-team-files.png)
+
+This confirms the files are present. It does not confirm that tests were executed or that their activity was detected in Splunk.
