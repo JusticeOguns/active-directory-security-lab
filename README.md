@@ -116,3 +116,23 @@ On TARGET-PC, I checked that the Invoke-AtomicRedTeam module file and the T1059.
 ![Atomic Red Team files on TARGET-PC](05-atomic-red-team-files.png)
 
 This confirms the files are present. It does not confirm that tests were executed or that their activity was detected in Splunk.
+
+## Results
+
+- Configured ADDC01 as the domain controller for `mydfir.local`.
+- Created IT and HR organisational units and the domain users jsmith and tsmith.
+- Joined TARGET-PC to the domain.
+- Verified that Sysmon and Splunk Universal Forwarder were running on TARGET-PC.
+- Confirmed that Application, System and Sysmon events reached Splunk.
+- Recorded 22,533 events from TARGET-PC at the time of verification.
+- Verified that the Atomic Red Team module file and a PowerShell test definition were present.
+
+## What I Learned
+
+I gained practical experience in Active Directory administration, domain membership and centralised log collection.
+
+Using Splunk, I grouped events by host and source to verify which logs were arriving from my Windows endpoint. This helped me understand how endpoint monitoring tools work together and why checking the collected data matters.
+
+## Acknowledgement
+
+This lab follows the MyDFIR Active Directory Project 1.0 series. The screenshots and results document my own implementation.
