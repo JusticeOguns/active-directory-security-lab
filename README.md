@@ -93,3 +93,18 @@ Both SplunkForwarder and Sysmon64 were running on TARGET-PC.
 ![Monitoring services running on TARGET-PC](03-monitoring-services.png)
 
 This check confirms that the services are running. Log delivery is verified separately through searches in Splunk.
+
+## Verifying Log Collection in Splunk
+
+I searched the `endpoint` index to check which logs Splunk received from TARGET-PC:
+
+    index=endpoint host="TARGET-PC"
+    | stats count by host source
+
+The results confirmed collection of Application, System and Sysmon events, with 22,533 events recorded at the time of the screenshot.
+
+![TARGET-PC log sources received by Splunk](04-splunk-log-sources.png)
+
+### Limitation
+
+Security logs did not appear in this search, so I could not verify failed-logon collection. Further troubleshooting is needed before claiming detection of the password-testing activity.
