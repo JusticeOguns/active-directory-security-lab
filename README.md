@@ -58,3 +58,20 @@ The diagram below shows the planned architecture of the Active Directory securit
 | Windows Server 2022 | ADDC01 | 192.168.10.7 | Domain controller for `mydfir.local` |
 | Windows 10 | TARGET-PC | 192.168.10.100 | Domain-joined endpoint monitored using Sysmon and Splunk Universal Forwarder |
 | Kali Linux | kali | 192.168.10.250 | Authorised security-testing machine |
+
+
+## Active Directory Configuration
+
+I configured ADDC01 as the domain controller for `mydfir.local`. I created IT and HR organisational units and added Jenny Smith (`jsmith`) and Terry Smith (`tsmith`) as domain users.
+
+### Organising Domain Users
+
+Jenny Smith's account is located in the IT organisational unit.
+
+![Active Directory users and organisational units](01-active-directory-users.png)
+
+### Joining the Windows Endpoint
+
+I joined TARGET-PC to `mydfir.local`. The screenshot confirms its full computer name and domain membership.
+
+![TARGET-PC joined to mydfir.local](02-target-pc-domain-joined.png)
